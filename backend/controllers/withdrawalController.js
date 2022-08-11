@@ -6,12 +6,12 @@ const ErrorHander = require("../utils/errorhander");
 
 exports.createWithdrawal = catchAsyncErrors(async (req, res, next) => {
 
-  const {bankName,WAmount,PaymentMethod} = req.body
+  const {Mobile,WAmount,PaymentMethod} = req.body
   
   const user = req.user.id;
   
     const withdrawal = await Withdrawal.create({
-        bankName,
+      Mobile,
       user,
       WAmount,
       PaymentMethod

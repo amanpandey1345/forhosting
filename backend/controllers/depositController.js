@@ -6,12 +6,12 @@ const User = require("../models/userModel");
 
 exports.createDeposit = catchAsyncErrors(async (req, res, next) => {
 
-  const {bankName,DAmount,PaymentMethod} = req.body
+  const {paymentId,DAmount,PaymentMethod} = req.body
   
   const user = req.user.id;
   
     const deposit = await Deposit.create({
-        bankName,
+      paymentId,
       user,
       DAmount,
       PaymentMethod
